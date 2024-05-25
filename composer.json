@@ -1,0 +1,58 @@
+{
+    "name": "multividas/multividas-cors",
+    "type": "package",
+    "license": "MIT",
+    "description": "Multividas CORS middleware is a package designed to handle Cross-Origin Resource Sharing (CORS).",
+    "keywords": [
+        "multividas",
+        "multividas-cors"
+    ],
+    "authors": [
+        {
+            "name": "Multividas",
+            "email": "multividasdotcom@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Multividas\\AllowCrossOrigin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Multividas\\AllowCrossOrigin\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests/Feature",
+        "php-psr": [
+          "find src -type f -name \"*.php\" -print0 | xargs -0 -n1 php -lf",
+          "vendor/bin/php-cs-fixer fix --allow-risky=yes src --rules=declare_strict_types,@PSR12",
+          "./vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 --extensions=php src/*"
+        ]
+    },
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "4.0.x-dev",
+        "phpunit/phpunit": "9.6.x-dev",
+        "orchestra/testbench": "8.x-dev",
+        "friendsofphp/php-cs-fixer": "dev-master"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Multividas\\AllowCrossOrigin\\Providers\\AllowCrossOriginServiceProvider"
+            ]
+        }
+    },
+    "support": {
+        "issues": "https://github.com/multividas/multividas-cors/issues",
+        "source": "https://github.com/multividas/multividas-cors"
+    }
+}
